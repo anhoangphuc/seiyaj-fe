@@ -6,7 +6,7 @@ import { Signer, TypedDataField } from "ethers";
 import { useEffect, useState } from "react";
 import { storageService } from "@/services/storage";
 import { useAppDispatch, useAppSelector } from "@/store/hook";
-import { saveAccount, saveToken } from "@/store/authSlice";
+import {saveAccount, saveEmail, saveToken} from "@/store/authSlice";
 import { backendAPI } from "@/services/api";
 import { useEagerConnect, useInactiveListener } from "@/hooks";
 import configs from "@/configs";
@@ -63,20 +63,20 @@ export default function Layout({ children }: LayoutProps) {
       chainId: configs.supportedNetwork.networkId,
       signature,
     };
-    try {
-      let encodedBase64 = Buffer.from(JSON.stringify(payload)).toString(
-        "base64"
-      );
-      const accountData: Account | undefined = storageService.getAccount();
-      if (accountData) {
-        accountData["accessToken"] = encodedBase64;
-        dispatch(saveToken(encodedBase64));
-        await userService.login(encodedBase64);
-        storageService.saveAccount(accountData);
-      }
-    } catch (error) {
-      console.log(error, "error");
-    }
+    // try {
+    //   let encodedBase64 = Buffer.from(JSON.stringify(payload)).toString(
+    //     "base64"
+    //   );
+    //   const accountData: Account | undefined = storageService.getAccount();
+    //   if (accountData) {
+    //     accountData["accessToken"] = encodedBase64;
+    //     dispatch(saveToken(encodedBase64));
+    //     await userService.login(encodedBase64);
+    //     storageService.saveAccount(accountData);
+    //   }
+    // } catch (error) {
+    //   console.log(error, "error");
+    // }
   };
 
   useEffect(() => {
@@ -87,6 +87,9 @@ export default function Layout({ children }: LayoutProps) {
       }
       if (account.accessToken) {
         dispatch(saveToken(account.accessToken));
+      }
+      if (account.email) {
+        dispatch(saveEmail(account.email));
       }
     }
   }, []);

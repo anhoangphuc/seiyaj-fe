@@ -9,11 +9,6 @@ export const userService = {
           email,
           password,
         },
-        // {
-        //   headers: {
-        //     Authorization: `Bearer ${token}`,
-        //   },
-        // }
       )
       .then((data) => Promise.resolve(data.data));
   },
@@ -26,4 +21,21 @@ export const userService = {
       })
       .then((data) => Promise.resolve(data.data));
   },
+
+  linkAddress: (address: string, signature: string, token: string) => {
+    return backendAPI
+      .post("users/link-address", {
+        address,
+        signature,
+      }, { headers: { Authorization: `Bearer ${token}`} })
+      .then((data) => Promise.resolve(data.data));
+  },
+
+  requestWhitelist: (token: string) =>  {
+    return backendAPI
+      .post("/users/request-whitelist", {},
+        { headers: { Authorization: `Bearer ${token}`}})
+      .then((data) => Promise.resolve(data.data));
+  }
+
 };

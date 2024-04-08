@@ -8,6 +8,7 @@ import {getSeiTokenContract} from '@/libs/contract-accessor';
 import {useWeb3React} from '@web3-react/core';
 import Configs from '@/configs';
 import {ROUTES} from '@/constants/routes';
+import {convertFromWei} from '@/utils';
 
 const cx = classNames.bind(styles);
 
@@ -21,8 +22,8 @@ export default function Home() {
 
   const getSeiBalance = async (seiContract: Sei) => {
     try {
-      const balance = await seiContract.whitelist(await seiContract.signer.getAddress());
-      setSeiBalance(balance.toString());
+      const balance = await seiContract.balanceOf(await seiContract.signer.getAddress());
+      setSeiBalance(convertFromWei(balance).toString());
     } catch (error) {
       console.error(error);
     }

@@ -5,17 +5,21 @@ import BigNumber from "bignumber.js";
 import { Web3Provider } from "@ethersproject/providers";
 
 interface AuthState {
+  email: string;
   address: string;
   token?: string;
   wrongNetwork?: boolean;
   balance: number | undefined;
+  linkedAddress?: string;
 }
 
 const initialState: AuthState = {
+  email: "",
   address: "",
   token: "",
   wrongNetwork: false,
   balance: 0,
+  linkedAddress: "",
 };
 
 /**
@@ -44,6 +48,12 @@ export const authSlice = createSlice({
     saveAccount: (state, action: PayloadAction<string>) => {
       state.address = action.payload;
     },
+    saveLinkedAddress: (state, action: PayloadAction<string>) => {
+      state.linkedAddress = action.payload;
+    },
+    saveEmail: (state, action: PayloadAction<string>) => {
+      state.email = action.payload;
+    },
     saveToken: (state, action: PayloadAction<string>) => {
       state.token = action.payload;
     },
@@ -54,6 +64,7 @@ export const authSlice = createSlice({
     logout: (state) => {
       state.address = "";
       state.token = "";
+      state.linkedAddress = "";
       storageService.removeAccount();
     },
   },
@@ -64,7 +75,7 @@ export const authSlice = createSlice({
   },
 });
 
-export const { saveAccount, saveToken, logout, setWrongNetwork } =
+export const { saveAccount, saveToken, logout, setWrongNetwork, saveEmail, saveLinkedAddress } =
   authSlice.actions;
 
 export default authSlice.reducer;

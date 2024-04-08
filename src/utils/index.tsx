@@ -1,5 +1,7 @@
 import { isArray } from "lodash";
 import { toast } from "react-toastify";
+import {BigNumber} from 'ethers';
+import {WeiPerEther} from '@ethersproject/constants';
 
 export const shortenAddress = (address: string, chars = 4) => {
   if (address)
@@ -22,3 +24,7 @@ export const handleError = (error: any, defaultMsg?: string) => {
 export const sleep = async (ms: number) => {
   return new Promise((resolve) => setTimeout(resolve, ms));
 };
+
+export function convertFromWei(value: BigNumber) {
+  return value.div(WeiPerEther);
+}
