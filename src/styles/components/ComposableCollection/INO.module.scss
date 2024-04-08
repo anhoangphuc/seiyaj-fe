@@ -1,0 +1,91 @@
+@import "./../../variables.scss";
+.wrapper {
+  width: 50%;
+  margin: 0 auto;
+  .ino-form {
+    .input-wrapper {
+      position: relative;
+      .selected-currency {
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        background: #343a4a;
+        border-radius: 0px 12px 12px 0px;
+        padding: 0px 20px;
+        &:hover {
+          filter: brightness(125%);
+        }
+      }
+      .input-text {
+        border: 2px solid #343a4a;
+        border-radius: 12px;
+        height: 44px;
+        width: 100%;
+        background: transparent;
+        color: $primary-text-color;
+        padding: 0 1rem;
+        box-sizing: border-box;
+        &:focus {
+          outline: none;
+        }
+      }
+      .date-icon {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        cursor: pointer;
+      }
+    }
+    .duration {
+      margin-top: 20px;
+    }
+    .label {
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: $secondary-text-color;
+      margin-bottom: 8px;
+    }
+    .label-detail {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      color: $gray-text-color;
+    }
+    .btn-wrapper {
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      .list-btn {
+        width: 200px;
+      }
+    }
+  }
+  .collection-detail {
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+    img {
+      background-color: #e4d7cf;
+      border-radius: 8px;
+      height: 240px;
+      width: auto;
+      object-fit: cover;
+    }
+    .collection-info {
+      margin-top: 16px;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 32px;
+      color: $primary-text-color;
+    }
+  }
+}

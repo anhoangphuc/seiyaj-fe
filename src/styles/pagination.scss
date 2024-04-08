@@ -1,0 +1,32 @@
+@import "./variables.scss";
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  ul {
+    display: flex;
+    li {
+      list-style: none;
+      margin: 0 0.5rem;
+      cursor: pointer;
+      border: 1px solid $gray-text-color;
+      height: 40px;
+      width: 40px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &.disabled {
+        opacity: 0.5;
+        cursor: no-drop;
+      }
+      &.selected {
+        color: $primary-color;
+        font-weight: 700;
+        border: 1px solid $primary-color;
+      }
+      a {
+        padding: 8px 16px;
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+@import "../variables.scss";
+
+.home {
+  .launchpad {
+    display: flex;
+    justify-content: space-between;
+    .slide {
+      width: 50%;
+    }
+    .thumbnails {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+    }
+  }
+  .container {
+    text-align: center;
+    font-size: 40px;
+  }
+}
+
+.user-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-size: 40px;
+  input {
+    width: 300px;
+    height: 50px;
+    font-size: 20px;
+  }
+  button {
+    width: 300px;
+    height: 50px;
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,23 @@
+@import "../../variables.scss";
+.currencies-dialog {
+  display: none;
+  position: absolute;
+  width: 200px;
+  top: calc(100% + 8px);
+  right: 0;
+  padding: 0.5rem;
+  background: #202337;
+  border-radius: 8px;
+  z-index: 999;
+  &.visible {
+    display: block;
+  }
+  .currency {
+    padding: 4px 8px;
+    font-size: 14px;
+    cursor: pointer;
+    &:hover {
+      background: $primary-bg-color;
+    }
+  }
+}

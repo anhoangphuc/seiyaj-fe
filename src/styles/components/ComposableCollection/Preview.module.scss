@@ -1,0 +1,215 @@
+@import "../../variables.scss";
+.header {
+  position: relative;
+  margin: 0 -200px;
+  .cover-image {
+    width: 100%;
+    height: 250px;
+    background: #575b64;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .avatar {
+    background: #575b64;
+    border: 8px solid #121423;
+    border-radius: 99999px;
+    width: 162px;
+    height: 162px;
+    margin-top: -81px;
+    margin-left: 160px;
+    overflow: hidden;
+    img {
+      width: calc(100% - 16px);
+      height: calc(100% - 16px);
+      object-fit: cover;
+      border-radius: 99999px;
+      border: 8px solid #121423;
+    }
+  }
+}
+.title {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 55px;
+  letter-spacing: -0.02em;
+  color: $primary-text-color;
+  font-family: "DM Sans";
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+.actions {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  .action-btn {
+    width: 200px;
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}
+.description {
+  font-size: 14px;
+  color: $secondary-text-color;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+.nfts {
+  margin: 40px 0;
+  display: grid;
+  column-gap: 30px;
+  row-gap: 30px;
+
+  grid-template-columns: repeat(4, 1fr);
+  .nft {
+    .nft-image-container {
+      position: relative;
+      height: 300px;
+      border-radius: 16px;
+      cursor: pointer;
+      background-color: #f0f8ffc9;
+      .nft-image {
+        width: 100%;
+        object-fit: cover;
+        border-radius: 16px;
+        height: 100%;
+      }
+      .buy-container {
+        display: none;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        background: #ffb90040;
+        border-radius: 16px;
+        width: 100%;
+        height: 100%;
+
+        justify-content: center;
+        align-items: center;
+        button {
+          border: none;
+          font-size: 16px;
+          line-height: 16px;
+          font-weight: 700;
+          font-family: "DM Sans";
+          padding: 16px 24px;
+          background: $primary-color;
+          border-radius: 90px;
+          cursor: pointer;
+          width: 160px;
+        }
+      }
+    }
+
+    .nft-image-container:hover .buy-container {
+      display: flex;
+
+      -webkit-animation: fadeInFromNone 0.5s ease-out;
+      -moz-animation: fadeInFromNone 0.5s ease-out;
+      -o-animation: fadeInFromNone 0.5s ease-out;
+      animation: fadeInFromNone 0.5s ease-out;
+    }
+
+    @-webkit-keyframes fadeInFromNone {
+      0% {
+        display: none;
+        opacity: 0;
+      }
+
+      1% {
+        display: block;
+        opacity: 0;
+      }
+
+      100% {
+        display: block;
+        opacity: 1;
+      }
+    }
+
+    @-moz-keyframes fadeInFromNone {
+      0% {
+        display: none;
+        opacity: 0;
+      }
+
+      1% {
+        display: block;
+        opacity: 0;
+      }
+
+      100% {
+        display: block;
+        opacity: 1;
+      }
+    }
+
+    @-o-keyframes fadeInFromNone {
+      0% {
+        display: none;
+        opacity: 0;
+      }
+
+      1% {
+        display: block;
+        opacity: 0;
+      }
+
+      100% {
+        display: block;
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInFromNone {
+      0% {
+        display: none;
+        opacity: 0;
+      }
+
+      1% {
+        display: block;
+        opacity: 0;
+      }
+
+      100% {
+        display: block;
+        opacity: 1;
+      }
+    }
+
+    .info {
+      margin-top: 21px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .name {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+        cursor: pointer;
+      }
+      .price {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 8px 10px 6px;
+        gap: 10px;
+        background: rgba(255, 185, 0, 0.1);
+        border-radius: 4px;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 12px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: $primary-color;
+        white-space: nowrap;
+      }
+    }
+  }
+}

@@ -1,0 +1,205 @@
+@import "../../variables.scss";
+
+.generate-nft {
+  padding-bottom: 100px;
+  .collection-detail {
+    display: flex;
+    .image {
+      width: 288px;
+      height: 288px;
+      border-radius: 20px;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .info {
+      flex: 1;
+      padding-left: 45px;
+      .name {
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 40px;
+        letter-spacing: -0.01em;
+        color: $primary-text-color;
+        font-family: "DM Sans";
+      }
+      .description {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: -0.01em;
+        color: rgba($color: $primary-text-color, $alpha: 0.7);
+        margin-top: 12px;
+      }
+      .input-info {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        background: #1c1e2c;
+        margin-top: 20px;
+        padding: 25px;
+        gap: 15px;
+        .supply {
+          cursor: no-drop;
+          opacity: 0.5;
+        }
+        .label {
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+          color: $secondary-text-color;
+          margin-bottom: 8px;
+          font-weight: 700;
+          font-size: 12px;
+          line-height: 12px;
+        }
+        .input-wrapper {
+          position: relative;
+          .date-icon {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            cursor: pointer;
+          }
+        }
+        input {
+          border: 2px solid #343a4a;
+          border-radius: 12px;
+          height: 44px;
+          width: 100%;
+          background: transparent;
+          color: $primary-text-color;
+          padding: 0 1rem;
+          box-sizing: border-box;
+          font-family: "Poppins";
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+  .trait-collections {
+    .trait-collection {
+      &.disabled {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 20px;
+        cursor: pointer;
+        .title {
+          font-weight: 600;
+          font-size: 24px;
+          line-height: 32px;
+          color: $primary-text-color;
+        }
+      }
+      .panel {
+        margin-top: 30px;
+        background: #1c1e2c;
+        padding: 37px 50px;
+        max-height: 450px;
+        overflow-y: auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        .nft-definition {
+          display: flex;
+          align-items: center;
+          margin-bottom: 20px;
+          .nft-image {
+            width: 102px;
+            height: 102px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #f0f8ffc9;
+            cursor: pointer;
+            min-width: 102px;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+          .nft-info {
+            margin-left: 20px;
+            flex: 1;
+            .nft-name {
+              font-weight: 700;
+              font-size: 16px;
+              line-height: 24px;
+              color: $primary-text-color;
+            }
+            .input-amount {
+              margin-top: 15px;
+              .amount {
+                letter-spacing: 0.04em;
+                text-transform: uppercase;
+                font-weight: 700;
+                font-size: 12px;
+                line-height: 12px;
+                color: $secondary-text-color;
+                margin-bottom: 8px;
+              }
+              .nft-number {
+                margin-left: 8px;
+                font-size: 14px;
+                line-height: 20px;
+              }
+
+              .input-wrapper {
+                position: relative;
+                width: 70%;
+                input {
+                  border: 2px solid #343a4a;
+                  border-radius: 12px;
+                  height: 40px;
+                  width: 100%;
+                  background: transparent;
+                  color: $primary-text-color;
+                  padding: 0 2rem 0 1rem;
+                  box-sizing: border-box;
+                  font-family: "Poppins";
+                  &:focus {
+                    outline: none;
+                  }
+                }
+                .percentage {
+                  position: absolute;
+                  top: 9px;
+                  right: 12px;
+                  cursor: pointer;
+                  color: $primary-color;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .footer {
+    .generate-button {
+      width: fit-content;
+    }
+  }
+}
+
+.error {
+  font-size: 12px;
+  line-height: 16px;
+  color: red;
+  margin-top: 8px;
+}
+.warning {
+  font-size: 12px;
+  line-height: 16px;
+  color: #f0b90b;
+  margin-top: 8px;
+  font-style: italic;
+}

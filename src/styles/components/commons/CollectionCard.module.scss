@@ -1,0 +1,90 @@
+@import "../../variables.scss";
+
+.collection-card {
+  &.medium {
+    .image {
+      width: 100%;
+      height: 300px;
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      background-color: #f0f8ffc9;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        &:hover {
+          transform: scale(1.1);
+          transition: all 0.3s ease-in-out;
+        }
+      }
+    }
+  }
+  &.small {
+    .image {
+      width: 100%;
+      height: 150px;
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      background-color: #f0f8ffc9;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        &:hover {
+          transform: scale(1.1);
+          transition: all 0.3s ease-in-out;
+        }
+      }
+    }
+  }
+  .info {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .name {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 24px;
+      color: $primary-text-color;
+      cursor: pointer;
+    }
+    .price {
+      background: rgba(255, 185, 0, 0.1);
+      border-radius: 4px;
+      height: 26px;
+      width: fit-content;
+      padding: 0 6px;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: $primary-color;
+    }
+  }
+}
+
+.image-skeleton {
+  width: 100%;
+  height: 300px;
+  border-radius: 16px;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.name-skeleton {
+  width: 100%;
+  height: 24px;
+  border-radius: 8px;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 40%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}

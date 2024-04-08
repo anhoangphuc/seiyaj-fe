@@ -1,0 +1,48 @@
+@import "../../variables.scss";
+
+.custom-select-container {
+  width: 250px;
+  max-width: 100%;
+  text-align: left;
+  position: relative;
+  cursor: pointer;
+  &.disabled {
+    opacity: 0.6;
+  }
+  svg {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  .selected-option {
+    padding: 8px 10px 8px 16px;
+    gap: 18px;
+    border: 2px solid #343a4a;
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .select-options {
+    width: 100%;
+    position: absolute;
+    border-radius: 8px;
+    overflow: hidden;
+    top: 44px;
+    z-index: 2;
+    .custom-select-option {
+      text-align: left;
+      padding: 6px 20px;
+      background: $secondary-bg-color;
+      border-bottom: 1px solid $gray-text-color;
+      cursor: pointer;
+      &:last-child {
+        border-bottom: none;
+      }
+      &:hover {
+        background-color: #32a6a6;
+        color: #ffffff;
+      }
+    }
+  }
+}

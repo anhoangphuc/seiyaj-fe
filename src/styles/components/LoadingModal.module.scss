@@ -1,0 +1,10 @@
+@import "../variables.scss";
+.loading-modal {
+  background-color: $secondary-bg-color;
+  width: 500px;
+  height: 300px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

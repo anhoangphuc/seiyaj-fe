@@ -1,0 +1,299 @@
+@import "../../variables.scss";
+.mt-18 {
+  margin-top: 18px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.m-14 {
+  margin: 14px 0 !important;
+}
+.create-new-collection {
+  padding: 30px 0px;
+  .retangle {
+    width: 100%;
+    height: 2px;
+    background-color: $secondary-bg-color;
+    margin: 30px auto;
+  }
+  .title {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 55px;
+    letter-spacing: -0.02em;
+    color: $primary-text-color;
+    font-family: "DM Sans";
+    text-transform: capitalize;
+  }
+  .sub-title {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: $gray-text-color;
+  }
+  .form {
+    width: 100%;
+    margin-top: 30px;
+
+    .input-form {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      .creators {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 18px;
+        color: $secondary-text-color;
+        svg {
+          margin-top: 16px;
+        }
+      }
+      .first-column {
+        width: 50%;
+      }
+      .second-column {
+        width: 38%;
+      }
+      .child-card {
+        border-left: 3px solid $primary-color;
+        padding-left: 15px;
+        margin-left: 10px;
+      }
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .collection-type,
+        .supply,
+        .royalty-address,
+        .currency {
+          width: 48%;
+        }
+        .currency-composable,
+        .symbol {
+          width: 100%;
+        }
+        .collection-type {
+          select {
+            width: 100%;
+          }
+        }
+        .supply {
+          &.disable {
+            opacity: 0.5;
+            pointer-events: none;
+          }
+        }
+      }
+
+      .label {
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 12px;
+        letter-spacing: 0.04em;
+        color: $secondary-text-color;
+        margin-bottom: 8px;
+      }
+      .label-description {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 20px;
+        margin-top: 4px;
+        color: $gray-text-color;
+      }
+      .input-text {
+        border: 2px solid #343a4a;
+        border-radius: 12px;
+        height: 44px;
+        width: 100%;
+        background: transparent;
+        color: $primary-text-color;
+        padding: 0 1rem;
+        box-sizing: border-box;
+        &:focus {
+          outline: none;
+        }
+        &:disabled {
+          opacity: 0.6;
+          color: #9c9ea3;
+        }
+      }
+      textarea {
+        border: 1px solid #343a4a;
+        border-radius: 12px;
+        width: 100%;
+        background: transparent;
+        box-sizing: border-box;
+        padding: 1rem;
+        color: $primary-text-color;
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .description {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 18px;
+        color: $gray-text-color;
+      }
+      .creators {
+        background: rgba(33, 36, 55, 0.5);
+        border-radius: 16px;
+        padding: 15px 24px;
+        .you {
+          font-weight: 700;
+          font-size: 12px;
+          line-height: 12px;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+          color: $primary-color;
+          padding: 8px 10px 6px;
+          gap: 10px;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          border: 2px solid $primary-color;
+          border-radius: 4px;
+        }
+        svg {
+          cursor: pointer;
+        }
+      }
+      .select-image {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        flex-direction: column;
+        width: 100%;
+        .feature-image,
+        .cover-image {
+          width: 100%;
+
+          .input-image {
+            border: 2px dashed #3772ff;
+            border-radius: 16px;
+            position: relative;
+            height: 200px;
+            width: 353px;
+            background: $secondary-bg-color;
+            overflow: hidden;
+            .import-area {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              flex-direction: column;
+              position: absolute;
+              top: 0;
+              right: 0;
+              left: 0;
+              bottom: 0;
+              .upload-description {
+                font-weight: 600;
+                font-size: 12px;
+                line-height: 18px;
+                color: $secondary-text-color;
+                margin-top: 20px;
+              }
+              .file-type {
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 18px;
+                color: $gray-text-color;
+                margin-top: 5px;
+              }
+            }
+
+            input {
+              width: 100%;
+              height: 100%;
+              opacity: 0;
+              cursor: pointer;
+            }
+            .feature-image {
+              border-radius: 16px;
+              position: relative;
+              height: 100%;
+              width: 100%;
+              position: absolute;
+              object-fit: cover;
+              top: 0;
+              right: 0;
+              left: 0;
+              bottom: 0;
+              &.hidden {
+                visibility: hidden;
+              }
+            }
+          }
+        }
+        .cover-image {
+          margin-top: 30px;
+        }
+      }
+    }
+  }
+  .btn-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    margin-bottom: 30px;
+    .btn-back {
+      width: 160px;
+    }
+    .btn-save {
+      width: 160px;
+      cursor: pointer;
+      border: none;
+      &.loading {
+        cursor: not-allowed;
+        opacity: 0.7;
+      }
+    }
+  }
+}
+@media screen and (max-width: $breakpoint-desktop) {
+  .create-new-collection {
+    padding: 10px 0px;
+    margin: auto;
+    .form {
+      width: 100%;
+      .input-form {
+        .select-image {
+          .feature-image,
+          .cover-image {
+            .input-image {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+  .create-new-collection {
+    .form {
+      flex-wrap: wrap;
+      .input-form {
+        .first-column,
+        .second-column {
+          width: 100%;
+        }
+      }
+    }
+    .btn-wrapper {
+      justify-content: center;
+    }
+  }
+}
+.select-currency {
+  width: 100% !important;
+}

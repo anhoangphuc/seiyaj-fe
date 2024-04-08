@@ -1,0 +1,115 @@
+@import "../../variables.scss";
+
+.composable-collection {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 0 60px;
+  .all-collection,
+  .all-selected {
+    width: 100%;
+    flex: 1;
+    padding: 25px 35px;
+
+    .title {
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 32px;
+      color: $primary-text-color;
+    }
+    .collections {
+      > div {
+        margin: 10px 0;
+      }
+    }
+  }
+  .all-collection {
+    order: 2;
+  }
+  .all-selected {
+    order: 1;
+    .header {
+      display: flex;
+      justify-content: space-between;
+      .title {
+        flex: 1;
+      }
+      .actions {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        .add-trait {
+          color: #212437;
+          font-family: "DM Sans";
+          font-style: normal;
+          font-weight: 700;
+          font-size: 16px;
+          line-height: 16px;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          padding: 16px 24px;
+          gap: 10px;
+          height: 48px;
+          border-radius: 90px;
+          svg {
+            path {
+              fill: #212437;
+            }
+          }
+        }
+      }
+    }
+    .footer {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+  }
+}
+.collection-wrapper {
+  display: flex;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba($color: #ffffff, $alpha: 0.07);
+
+  .arrow-wrapper {
+    margin-right: 10px;
+    width: 40px;
+    margin-top: 30px;
+    .arrow {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 27px;
+      height: 27px;
+      background: #292b39;
+      border-radius: 65px;
+      cursor: pointer;
+      margin: 5px 0;
+      &:hover {
+        svg {
+          path {
+            fill: $primary-color;
+          }
+        }
+      }
+      &.reverse {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+.create-button {
+  width: 200px;
+  margin-top: 30px;
+}
+
+.retangle {
+  opacity: 0.1;
+  height: 2px;
+  width: 100%;
+  background: $primary-text-color;
+  margin: 15px 0;
+}

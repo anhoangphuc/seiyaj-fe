@@ -1,0 +1,128 @@
+@import "../variables.scss";
+
+.wrapper {
+  padding: 2rem 10rem;
+  background-color: $primary-bg-color;
+
+  .navigation-bar {
+    width: 1120px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: auto;
+    .left-block {
+      display: flex;
+      align-items: center;
+      .divider {
+        width: 2px;
+        height: 40px;
+        background: #353945;
+        border-radius: 2px;
+        margin: 0 30px;
+      }
+      img {
+        cursor: pointer;
+      }
+    }
+    .right-block {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      > div {
+        margin: 0 8px;
+      }
+      .search-wrapper {
+        position: relative;
+        svg {
+          position: absolute;
+          top: 11px;
+          right: 10px;
+        }
+        .search {
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 18px;
+          padding: 10px 32px 10px 16px;
+          gap: 18px;
+          border: 2px solid #343a4a;
+          border-radius: 8px;
+          width: 256px;
+          background: transparent;
+          color: $primary-text-color;
+          &::placeholder {
+            color: $gray-text-color;
+          }
+        }
+        input.search {
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+      .cart-wrapper {
+        position: relative;
+        height: 26px;
+        .badge {
+          position: absolute;
+          bottom: 80%;
+          right: -10px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding: 3px 4px 2px 5px;
+          gap: 10px;
+          border-radius: 9999px;
+          background: #ef4646;
+          font-weight: 700;
+          font-size: 12px;
+          line-height: 12px;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-desktop) {
+  .wrapper {
+    .navigation-bar {
+      padding: 10px;
+      .right-block {
+        .search-wrapper,
+        .cart-wrapper {
+          margin: 8px;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: $breakpoint-xs-mobile) {
+  .wrapper {
+    .navigation-bar {
+      .left-block {
+        justify-content: space-between;
+        img {
+          flex: 1;
+          max-width: 50%;
+        }
+      }
+      .right-block {
+        .search-wrapper {
+          .search {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

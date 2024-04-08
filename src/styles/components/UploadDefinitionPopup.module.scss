@@ -1,0 +1,166 @@
+@import "../variables.scss";
+.popup {
+  display: flex;
+  flex-direction: column;
+  padding: 45px 58px;
+  background: #212437;
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  width: 469px;
+  height: 375px;
+  position: relative;
+  .close-icon {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    cursor: pointer;
+  }
+  .popup-header {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    .popup-title {
+      font-family: "DM Sans";
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 40px;
+      letter-spacing: -0.01em;
+      color: #fcfcfd;
+    }
+    .upload-types {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 20px;
+      .option {
+        display: flex;
+        align-items: center;
+        .text-type {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 1;
+          color: #fcfcfd;
+          margin-top: 12px;
+        }
+      }
+      .radio-wrapper {
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        font-size: 30px;
+        user-select: none;
+        padding-left: 40px;
+        margin-bottom: 10px;
+        height: fit-content;
+      }
+      .radio-wrapper input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+      }
+      .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 21px;
+        height: 21px;
+        background: transparent;
+        border: 2px solid $primary-color;
+        border-radius: 50%;
+      }
+      .radio-wrapper:hover .checkmark {
+        // background: $primary-color;
+      }
+      .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+      }
+      .radio-wrapper .checkmark:after {
+        top: 50%;
+        left: 50%;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: solid 5px #121423;
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+      .radio-wrapper input:checked ~ .checkmark {
+        background: $primary-color;
+      }
+      .radio-wrapper input:checked ~ .checkmark:after {
+        display: block;
+      }
+    }
+  }
+  .popup-content {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    .input-image {
+      border: 2px dashed #3772ff;
+      border-radius: 16px;
+      box-sizing: border-box;
+      position: relative;
+      height: 200px;
+      width: 353px;
+      box-sizing: border-box;
+      background: $secondary-bg-color;
+      .import-area {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        .upload-description {
+          font-weight: 600;
+          font-size: 12px;
+          line-height: 18px;
+          color: $secondary-text-color;
+          margin-top: 20px;
+        }
+        .file-type {
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 18px;
+          color: $gray-text-color;
+          margin-top: 5px;
+        }
+      }
+
+      input {
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+      }
+      .feature-image {
+        border-radius: 16px;
+        position: relative;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        object-fit: cover;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        &.hidden {
+          visibility: hidden;
+        }
+      }
+    }
+  }
+  .popup-footer {
+    margin-top: 30px;
+    .upload-btn {
+      width: 353px;
+      margin: auto;
+    }
+  }
+}

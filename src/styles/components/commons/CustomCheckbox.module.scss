@@ -1,0 +1,52 @@
+.custom-checkbox {
+  display: flex;
+  align-items: flex-end;
+  font-size: 15px;
+  .input-wrapper {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    .custom-input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 24px;
+      height: 24px;
+      border: solid 1px #fff;
+      background-color: transparent;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .active-input {
+      background-color: transparent;
+      border: solid 1px #fff;
+    }
+    .custom-input-uncheck {
+      display: none;
+      cursor: pointer;
+    }
+    .custom-input-check {
+      position: absolute;
+      background-image: url("/images/tick.png");
+      width: 16px;
+      height: 16px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      top: 5px;
+      left: 5px;
+      cursor: pointer;
+    }
+  }
+  input {
+    opacity: 0;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+  }
+  .label {
+    margin-left: 10px;
+  }
+}
