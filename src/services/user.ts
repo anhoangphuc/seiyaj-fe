@@ -1,16 +1,19 @@
 import { backendAPI } from "./api";
 
 export const userService = {
-  login: (token: string) => {
+  login: (email: string, password: string) => {
     return backendAPI
       .post(
-        "/users/login",
-        {},
+        "/auth/login",
         {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
+          email,
+          password,
+        },
+        // {
+        //   headers: {
+        //     Authorization: `Bearer ${token}`,
+        //   },
+        // }
       )
       .then((data) => Promise.resolve(data.data));
   },

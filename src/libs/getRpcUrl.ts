@@ -1,19 +1,9 @@
 import sample from "lodash/sample";
 /* eslint-disable no-undef */
 
-if (
-  !process.env.NEXT_PUBLIC_NODE_1 ||
-  !process.env.NEXT_PUBLIC_NODE_2 ||
-  !process.env.NEXT_PUBLIC_NODE_3
-) {
-  throw Error("One base RPC URL is undefined");
-}
-
 // Array of available nodes to connect to
 export const nodes = [
-  process.env.NEXT_PUBLIC_NODE_1,
-  process.env.NEXT_PUBLIC_NODE_2,
-  process.env.NEXT_PUBLIC_NODE_3,
+  process.env.PUBLIC_NODE,
 ];
 
 const getNodeUrl = () => sample(nodes);
