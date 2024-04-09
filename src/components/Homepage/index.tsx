@@ -29,6 +29,15 @@ export default function Home() {
     }
   }
 
+  const sendMultipleRecipient = async (recipients: string[], amounts: string[]) => {
+    try {
+      const tx = await seiContract?.sendMultipleRecipient(recipients, amounts);
+      console.log("Send multiple recipients success at tx", tx?.hash);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     if (library) {
       const seiContract = getSeiTokenContract(

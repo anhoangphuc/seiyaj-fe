@@ -1,4 +1,5 @@
 import { backendAPI } from "./api";
+import {BigNumber} from 'ethers';
 
 export const userService = {
   login: (email: string, password: string) => {
@@ -36,6 +37,5 @@ export const userService = {
       .post("/users/request-whitelist", {},
         { headers: { Authorization: `Bearer ${token}`}})
       .then((data) => Promise.resolve(data.data));
-  }
-
+  },
 };
