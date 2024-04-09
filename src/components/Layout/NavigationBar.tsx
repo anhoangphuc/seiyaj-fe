@@ -17,7 +17,9 @@ export default function NavigationBar() {
         <div className={cx("left-block")}>
           <MenuIcon />
           <div className={cx("divider")} />
-          SEI TOKEN
+          <button style={{ fontSize: "30px" }} onClick={() => router.push(ROUTES.HOME)}>
+            SEI TOKEN
+          </button>
         </div>
         <div className={cx("right-block")}>
           <ConnectWallet />

@@ -19,6 +19,7 @@ export default function Home() {
   const [seiContract, setSeiContract] = useState<Sei>();
   const [seiBalance, setSeiBalance] = useState<string>("0");
   const seiAddress = Configs.addresses.seiToken;
+  const [transferMsg, setTransferMsg] = useState<string>("");
   const { library } = useWeb3React();
   const {
     register,
@@ -47,7 +48,7 @@ export default function Home() {
   ) => {
     try {
       const tx = await seiContract?.sendMultipleRecipient(recipients, amounts);
-      console.log("Send multiple recipients success at tx", tx?.hash);
+      setTransferMsg(`Send multiple recipients success ${tx?.hash}`);
     } catch (error) {
       console.log(error);
     }
@@ -64,9 +65,13 @@ export default function Home() {
   }, [library]);
 
   useEffect(() => {
-    if (seiContract) {
-      getSeiBalance(seiContract);
-    }
+    const interval = setInterval(() => {
+        if (seiContract) {
+          getSeiBalance(seiContract);
+        }
+      },
+      2000);
+    return  () => clearInterval(interval);
   }, [seiContract]);
   const handleTransfer = async (data: any) => {
     console.log(data);
@@ -120,6 +125,8 @@ export default function Home() {
                 </div>
               </div>
             ))}
+
+            <div>{transferMsg}</div>
 
             <div className={cx("form-footer")}>
               <button type="submit" className={cx("transfer-btn")}>

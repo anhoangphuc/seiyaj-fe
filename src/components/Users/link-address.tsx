@@ -26,6 +26,7 @@ export default function LinkAddress() {
   const [airdropAmount, setAirdropAmount] = useState<string>("0");
   const [faucetAmount, setFaucetAmount] = useState<string>("0");
   const [faucetMsg, setFaucetMsg] = useState<string>("");
+  const [requestWhitelistMsg, setRequestWhitelistMsg] = useState<string>("");
   const seiAddress = Configs.addresses.seiToken;
   const { library } = useWeb3React();
   const [newLinkAddress, setNewLinkAddress] = useState<string>("");
@@ -82,6 +83,10 @@ export default function LinkAddress() {
         const amount = await seiContract?.whitelist(newLinkAddress);
         setAirdropAmount(amount ? convertFromWei(amount).toString() : "0");
       }
+      if (address && seiContract) {
+        const amount = await seiContract?.whitelist(address);
+        setAirdropAmount(amount ? convertFromWei(amount).toString() : "0");
+      }
     }
 
     const interval = setInterval(() => {
@@ -90,12 +95,13 @@ export default function LinkAddress() {
 
     getAirdropAmount();
     return () => clearInterval(interval);
-  }, [seiContract, newLinkAddress]);
+  }, [seiContract, newLinkAddress, address]);
 
   async function requestWhitelist() {
     try {
       const response = await userService.requestWhitelist(token || "");
       toast("Request whitelist success");
+      setRequestWhitelistMsg("Request whitelist success. Please wait for while until airdrop amount is funded to your account")
     } catch (error) {
       console.error(error);
     }
@@ -136,6 +142,7 @@ export default function LinkAddress() {
             <button onClick={() => linkAddress()}>Link Address</button>
           )}
         </div>
+        <div>{requestWhitelistMsg}</div>
       </div>
 
       <div className={cx("second-block")}>

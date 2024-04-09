@@ -32,6 +32,7 @@ export default function Register() {
         <input type="email" placeholder="Email" onChange={(event) => setEmail(event.target.value)}/>
         <input type="password" placeholder="Password" onChange={(event) => setPassword(event.target.value)}/>
         <button onClick={registerUser}>Register</button>
+        <div>Have an account?  <button className={cx("secondary-button")} onClick={() => router.push(ROUTES.LOGIN)}>Login</button></div>
       </div>
     </div>
   )
