@@ -39,46 +39,6 @@ export default function Layout({ children }: LayoutProps) {
     }
   }, [activatingConnector, connector]);
 
-  const signMessage = async (account: string) => {
-    const signer: Signer = library?.getSigner(account);
-    const domain = {
-      name: "marketplace-api",
-      chainId: configs.supportedNetwork.networkId,
-    };
-    const types = {
-      Request: [
-        { name: "request", type: "string" },
-        { name: "userAddress", type: "address" },
-      ],
-    } as Record<string, TypedDataField[]>;
-    const values = {
-      request: "eth_login",
-      userAddress: account,
-    };
-    //@ts-ignore
-    const signature = await signer?._signTypedData(domain, types, values);
-
-    const payload = {
-      address: account,
-      chainId: configs.supportedNetwork.networkId,
-      signature,
-    };
-    // try {
-    //   let encodedBase64 = Buffer.from(JSON.stringify(payload)).toString(
-    //     "base64"
-    //   );
-    //   const accountData: Account | undefined = storageService.getAccount();
-    //   if (accountData) {
-    //     accountData["accessToken"] = encodedBase64;
-    //     dispatch(saveToken(encodedBase64));
-    //     await userService.login(encodedBase64);
-    //     storageService.saveAccount(accountData);
-    //   }
-    // } catch (error) {
-    //   console.log(error, "error");
-    // }
-  };
-
   useEffect(() => {
     const account = storageService.getAccount();
     if (account) {
@@ -93,15 +53,6 @@ export default function Layout({ children }: LayoutProps) {
       }
     }
   }, []);
-
-  useEffect(() => {
-    if (address) {
-      const token = !!storageService.getAccount()?.accessToken;
-      if (!token) {
-        signMessage(address);
-      }
-    }
-  }, [address]);
 
   useEffect(() => {
     if (token) {
