@@ -28,3 +28,7 @@ export const sleep = async (ms: number) => {
 export function convertFromWei(value: BigNumber) {
   return value.div(WeiPerEther);
 }
+
+export function convertToWei(value: BigNumber) {
+  return value.mul(WeiPerEther);
+}
